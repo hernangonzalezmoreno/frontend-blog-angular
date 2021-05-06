@@ -7,7 +7,7 @@
 
   <!-- Formulario de rigistro -->
   <!-- Registramos el formulario en Angular. Cuando se dispara el submit se llama al metodo onSubmit() de la componente register -->
-  <form class="col-md-5 ml-0 pl-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
+  <form class="col-md-5 ml-0 pl-0" #formularioDeRegistro="ngForm" (ngSubmit)="onSubmit(formularioDeRegistro)" >
 
     <div class="form-group">
       <label for="name">Nombre</label>
@@ -52,7 +52,7 @@
       </small>
     </div>
 
-    <input type="submit" value="Registrarme" class="btn btn-success">
+    <input type="submit" value="Registrarme" class="btn btn-success" [disabled]="formularioDeRegistro.invalid" >
 
   </form>
 </div>
