@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="col-md-12 mt-3">
+
+  <h1>{{pageTitle}}</h1>
+
+  <form class="col-md-5 ml-0 pl-0" #formularioDeLogin="ngForm" (ngSubmit)="onSubmit(formularioDeLogin)" >
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control"
+      #email="ngModel" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.][a-z]+" >
+      <!-- Mensaje de alerta: si el email no es valido -->
+      <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+        El email no es válido.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" class="form-control"
+      #password="ngModel" [(ngModel)]="user.password" required pattern=".{8,255}">
+      <!-- Mensaje de alerta: si el password no es valido -->
+      <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+        La contraseña no es válida.
+      </small>
+    </div>
+
+    <input type="submit" value="Ingresar" class="btn btn-success" [disabled]="formularioDeLogin.invalid" >
+
+  </form>
+
+</div>
