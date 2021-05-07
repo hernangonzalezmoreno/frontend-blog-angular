@@ -1,5 +1,8 @@
 export class User{
 
+  public token: string = '';
+  public getDecodedToken: any;
+
   constructor(
     public id: number,
     public name: string,
