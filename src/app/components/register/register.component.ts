@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
 
   public pageTitle : string;
   public user : User;
+  public status : string = '';
 
   constructor(
     private _userService: UserService
@@ -24,8 +25,21 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit( formulario: any ){
-    console.log( this.user );
-    formulario.reset();
+
+    this._userService.register( this.user ).subscribe(
+      response => {
+        console.log( 'Ok, todo bien' );
+        console.log( response );
+        this.status = response.status;
+        if( this.status == "success" ) formulario.reset();
+      },
+      error => {
+        console.log( <any>error );
+        console.log( 'Salto error' );
+        this.status = 'error';
+      }
+    );
+
   }
 
 }
