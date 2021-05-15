@@ -24,7 +24,7 @@
       </ul>
 
       <!-- Menu flotando a la derecha -->
-      <ul class="navbar-nav navbar-right">
+      <ul class="navbar-nav navbar-right" *ngIf="!identity">
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/login']" >Login</a>
         </li>
@@ -34,10 +34,10 @@
       </ul>
 
       <!-- Menu flotando a la derecha -->
-      <ul class="navbar-nav navbar-right">
+      <ul class="navbar-nav navbar-right" *ngIf="identity">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Usuario
+            {{identity.name}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Crear entrada</a>

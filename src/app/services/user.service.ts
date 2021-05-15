@@ -39,4 +39,14 @@ export class UserService{
 
   }
 
+  getToken(): string{
+    let token = localStorage.getItem( 'token' );
+    return !token? '' : token;
+  }
+
+  getIdentity(): User{
+    let identity = JSON.parse( localStorage.getItem( 'identity' ) || 'null' ) as User;
+    return identity;
+  }
+
 }
