@@ -26,9 +26,9 @@ export class UserService{
     return this._http.post( this.url+'register', params, {headers: this.getHeaders()} );
   }
 
-  singup( user: User, getToken: string = '' ): Observable<any>{
+  singup( user: User, getToken: boolean = false ): Observable<any>{
 
-    if( getToken != '' ){
+    if( !getToken ){
       user.getDecodedToken = 'true';
     }
 

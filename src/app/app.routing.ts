@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'inicio', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout/:exit', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
   { path: '**', component: ErrorComponent },
   // Con los dobles asteriscos '**' nos referimos a todas las rutas posibles salvo las anteriores
