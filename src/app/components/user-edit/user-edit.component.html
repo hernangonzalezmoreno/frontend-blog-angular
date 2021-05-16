@@ -1,1 +1,78 @@
-<p>user-edit works!</p>
+<div class="col-md-12 mt-3">
+
+  <h1>{{pageTitle}}</h1>
+
+  <p>
+    Modifique los datos que desea actualizar.
+  </p>
+
+  <!--
+  <!-- Alerta de registro exitoso, con directiva condicional *ngIf --/>
+  <div class="alert alert-success" *ngIf="status == 'success'" >
+    Te has registrado correctamente. Ya puedes <a [routerLink]="['/login']" >iniciar sesión</a>.
+  </div>
+
+  <!-- Alerta fallo en el registro, con directiva condicional *ngIf --/>
+  <div class="alert alert-danger" *ngIf="status == 'error'" >
+    El registro ha fallado. Revisa los campos o vuelve a intentarlo mas tarde.
+  </div>
+  -->
+
+  <hr>
+
+  <!-- Formulario de rigistro -->
+  <!-- Registramos el formulario en Angular. Cuando se dispara el submit se llama al metodo onSubmit() de la componente register -->
+  <form class="col-md-5 ml-0 pl-0" #formularioDeAjustes="ngForm" (ngSubmit)="onSubmit(formularioDeAjustes)" >
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <!-- Hacemos un puente bidireccional con el modelo -->
+      <!-- Ademas aplicamos comprobaciones HTML5 para que sea requerido y solo caracteres alfabeticos -->
+      <input type="text" name="name" class="form-control"
+      #name="ngModel" [(ngModel)]="user.name" required pattern="[a-zA-Z ]{2,50}"
+      title="El nombre no es válido." >
+      <!-- Mensaje de alerta: si el nombre no es valido -->
+      <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+        El nombre no es válido.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="surname">Apellido</label>
+      <input type="text" name="surname" class="form-control"
+      #surname="ngModel" [(ngModel)]="user.surname" required pattern="[a-zA-Z ]{2,100}" >
+      <!-- Mensaje de alerta: si el apellido no es valido -->
+      <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+        El apellido no es válido.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control"
+      #email="ngModel" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.][a-z]+" >
+      <!-- Mensaje de alerta: si el email no es valido -->
+      <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+        El email no es válido.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Biografía</label>
+      <textarea name="description" rows="8" cols="80"
+      name="description" class="form-control"
+      #description="ngModel" [(ngModel)]="user.description">
+      </textarea>
+      <!--<input type="text" name="description" class="form-control"
+      #description="ngModel" [(ngModel)]="user.description" >-->
+    </div>
+
+    <div class="form-group">
+      <label for="image">Avatar</label>
+      <input type="file" name="image" class="form-control" >
+    </div>
+
+    <input type="submit" value="Guardar cambios" class="btn btn-success" [disabled]="formularioDeAjustes.invalid" >
+
+  </form>
+</div>
