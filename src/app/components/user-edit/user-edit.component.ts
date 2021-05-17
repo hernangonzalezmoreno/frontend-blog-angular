@@ -11,13 +11,13 @@ import { UserService } from '../../services/user.service';
 export class UserEditComponent implements OnInit {
 
   public pageTitle: string = 'Ajustes';
-  public user: User;
+  public user: User = new User();
   public token: string;
 
   constructor(
     private _userService: UserService
   ){
-    this.user = this._userService.getIdentity();
+    this.user.setValues( this._userService.getIdentity() );
     this.token = this._userService.getToken();
   }
 
@@ -27,7 +27,11 @@ export class UserEditComponent implements OnInit {
   onSubmit( form: any ){
     this._userService.update( this.token, this.user ).subscribe(
       response => {
+
         console.log( <any> response );
+        this.user.setValues( response.changes );
+        localStorage.setItem( 'identity', JSON.stringify(this.user) );
+
       },
       error => {
         console.log( <any> error );
