@@ -6,17 +6,15 @@
     Modifique los datos que desea actualizar.
   </p>
 
-  <!--
-  <!-- Alerta de registro exitoso, con directiva condicional *ngIf --/>
+  <!-- Alerta de cabios guardados exitosamente, con directiva condicional *ngIf -->
   <div class="alert alert-success" *ngIf="status == 'success'" >
-    Te has registrado correctamente. Ya puedes <a [routerLink]="['/login']" >iniciar sesión</a>.
+    Los cambios se han guardado correctamente.
   </div>
 
-  <!-- Alerta fallo en el registro, con directiva condicional *ngIf --/>
+  <!-- Alerta fallo en el guardado de los cambios, con directiva condicional *ngIf -->
   <div class="alert alert-danger" *ngIf="status == 'error'" >
-    El registro ha fallado. Revisa los campos o vuelve a intentarlo mas tarde.
+    Hubo un problema al guardar los cambios. Revisa los campos o vuelve a intentarlo mas tarde.
   </div>
-  -->
 
   <hr>
 
