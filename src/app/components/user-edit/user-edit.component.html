@@ -57,7 +57,7 @@
 
     <div class="form-group">
       <label for="description">Biografía</label>
-      <textarea [froalaEditor] name="description" rows="8" cols="80"
+      <textarea [froalaEditor]="froala_options" name="description" rows="8" cols="80"
       name="description" class="form-control"
       #description="ngModel" [(ngModel)]="user.description">
       {{user.description}}

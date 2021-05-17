@@ -15,6 +15,15 @@ export class UserEditComponent implements OnInit {
   public token: string;
   public status: string = '';
 
+  // Opciones de Froala. Las distintas herramientas que se muestran segun el tamano de la pantalla
+  public froala_options: Object = {
+    charCounterCount: true,
+    toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+    toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat','alert'], // pantalla XS
+    toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat','alert'], // pantalla SM
+    toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'], // pantalla MD
+  };
+
   constructor(
     private _userService: UserService
   ){
