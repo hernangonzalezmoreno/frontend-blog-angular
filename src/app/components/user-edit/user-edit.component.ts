@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { global } from '../../services/global';
 
 @Component({
   selector: 'app-user-edit',
@@ -24,10 +25,24 @@ export class UserEditComponent implements OnInit {
     toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'], // pantalla MD
   };
 
-  public afuConfig = {
-      uploadAPI: {
-        url:"https://example-file-upload-api"
-      }
+  public afuConfig: any = {
+      multiple: false,
+      formatsAllowed: ".jpg,.jpeg,.png,.gif",
+      maxSize: "2",
+      uploadAPI:  {
+        url: global.url + 'user/upload',
+        method:"POST",
+        headers: {
+          "Authorization" : this._userService.getToken()
+        }
+      },
+      theme: "attachPin",
+      hideProgressBar: false,
+      hideResetBtn: true,
+      hideSelectBtn: false,
+      replaceTexts: {
+        attachPinBtn: 'Sube tu avatar de usuario',
+      },
   };
 
   constructor(
