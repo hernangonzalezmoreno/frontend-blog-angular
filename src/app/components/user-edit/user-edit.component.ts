@@ -24,6 +24,12 @@ export class UserEditComponent implements OnInit {
     toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'], // pantalla MD
   };
 
+  public afuConfig = {
+      uploadAPI: {
+        url:"https://example-file-upload-api"
+      }
+  };
+
   constructor(
     private _userService: UserService
   ){
