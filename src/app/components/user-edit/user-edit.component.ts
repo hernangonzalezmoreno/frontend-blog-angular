@@ -14,6 +14,7 @@ export class UserEditComponent implements OnInit {
   public pageTitle: string = 'Ajustes';
   public user: User = new User();
   public token: string;
+  public urlAvatar: string;
   public status: string = '';
 
   // Opciones de Froala. Las distintas herramientas que se muestran segun el tamano de la pantalla
@@ -50,6 +51,7 @@ export class UserEditComponent implements OnInit {
   ){
     this.user.setValues( this._userService.getIdentity() );
     this.token = this._userService.getToken();
+    this.urlAvatar = global.urlAvatar;
   }
 
   ngOnInit(): void {

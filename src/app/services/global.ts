@@ -1,3 +1,6 @@
+var url = 'http://localhost:8000/api/';
+
 export var global = {
-  url : 'http://localhost:8000/api/'
+  url : url,
+  urlAvatar: url+'user/avatar/', // {filename}
 };

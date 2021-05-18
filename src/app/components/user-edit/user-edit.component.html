@@ -68,6 +68,11 @@
 
     <div class="form-group">
       <label for="image">Avatar</label>
+
+      <div *ngIf="user.image" >
+        <img src="{{urlAvatar + user.image}}" class="avatar_upload"/>
+      </div>
+
       <angular-file-uploader
         [config]="afuConfig" (ApiResponse)="avatarUpload($event)" >
       </angular-file-uploader>
