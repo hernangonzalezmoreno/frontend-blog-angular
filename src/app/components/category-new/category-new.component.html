@@ -6,17 +6,15 @@
     Crea una nueva categoria para el blog.
   </p>
 
-  <!--
-  <!-- Alerta de cabios guardados exitosamente, con directiva condicional *ngIf --/>
+  <!-- Alerta de creacion de nueva categoria exitosamente, con directiva condicional *ngIf -->
   <div class="alert alert-success" *ngIf="status == 'success'" >
-    Los cambios se han guardado correctamente.
+    La categoría <strong>{{category.name}}</strong> se ha creado correctamente.
   </div>
 
-  <!-- Alerta fallo en el guardado de los cambios, con directiva condicional *ngIf --/>
+  <!-- Alerta de fallo al crear la nueva categoria, con directiva condicional *ngIf -->
   <div class="alert alert-danger" *ngIf="status == 'error'" >
-    Hubo un problema al guardar los cambios. Revisa los campos o vuelve a intentarlo mas tarde.
+    Hubo un problema para crear la categoría. Revisa los campos o vuelve a intentarlo mas tarde.
   </div>
-  -->
 
   <hr>
 
