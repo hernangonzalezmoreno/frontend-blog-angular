@@ -55,6 +55,11 @@ export class UserEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  avatarUpload( datos: any ){
+    //console.log( datos.body );
+    this.user.image = datos.body.image;
+  }
+
   onSubmit( form: any ){
     this._userService.update( this.token, this.user ).subscribe(
       response => {
