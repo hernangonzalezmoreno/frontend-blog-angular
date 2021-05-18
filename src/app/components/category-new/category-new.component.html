@@ -1,1 +1,43 @@
-<p>category-new works!</p>
+<div class="col-md-12 mt-3">
+
+  <h1>{{pageTitle}}</h1>
+
+  <p>
+    Crea una nueva categoria para el blog.
+  </p>
+
+  <!--
+  <!-- Alerta de cabios guardados exitosamente, con directiva condicional *ngIf --/>
+  <div class="alert alert-success" *ngIf="status == 'success'" >
+    Los cambios se han guardado correctamente.
+  </div>
+
+  <!-- Alerta fallo en el guardado de los cambios, con directiva condicional *ngIf --/>
+  <div class="alert alert-danger" *ngIf="status == 'error'" >
+    Hubo un problema al guardar los cambios. Revisa los campos o vuelve a intentarlo mas tarde.
+  </div>
+  -->
+
+  <hr>
+
+  <!-- Formulario de rigistro -->
+  <!-- Registramos el formulario en Angular. Cuando se dispara el submit se llama al metodo onSubmit() de la componente register -->
+  <form class="col-md-5 ml-0 pl-0" #formNuevaCategoria="ngForm" (ngSubmit)="onSubmit(formNuevaCategoria)" >
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <!-- Hacemos un puente bidireccional con el modelo -->
+      <!-- Ademas aplicamos comprobaciones HTML5 para que sea requerido y solo caracteres alfabeticos -->
+      <input type="text" name="name" class="form-control"
+      #name="ngModel" [(ngModel)]="category.name" required pattern="[a-zA-Z ]{2,50}"
+      title="El nombre no es válido." >
+      <!-- Mensaje de alerta: si el nombre no es valido -->
+      <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+        El nombre de la categoría no es válido.
+      </small>
+    </div>
+
+    <input type="submit" value="Guardar" class="btn btn-success" [disabled]="formNuevaCategoria.invalid" >
+
+  </form>
+</div>
