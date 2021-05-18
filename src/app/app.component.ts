@@ -1,6 +1,7 @@
 import { Component, DoCheck } from '@angular/core';
 import { UserService } from './services/user.service';
 import { User } from './models/user';
+import { global } from './services/global';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,14 @@ export class AppComponent implements DoCheck{
 
   public title = 'frontend-blog-angular';
   public identity: User = null as any;
+  public urlAvatar: string;
   public token: string = '';
 
   constructor(
     public _userService: UserService
   ){
     this.loadUser();
+    this.urlAvatar = global.urlAvatar;
   }
 
   ngDoCheck(){

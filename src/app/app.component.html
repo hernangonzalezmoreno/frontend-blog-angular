@@ -35,6 +35,13 @@
 
       <!-- Menu flotando a la derecha -->
       <ul class="navbar-nav navbar-right" *ngIf="identity">
+
+        <li *ngIf="identity && identity.image" class="nav-item" >
+          <div class="avatar_nav_mask" >
+            <img src="{{urlAvatar + identity.image}}"/>
+          </div>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{identity.name}}
