@@ -1,13 +1,13 @@
 export class Post{
 
   constructor(
-    public id: number,
-    public user_id: number,
-    public category_id: number,
-    public title: string,
-    public content: string,
-    public image: string,
-    public createdAt: any
+    public id: number = 1,
+    public user_id: number = 1,
+    public category_id: number = 1,
+    public title: string = '',
+    public content: string = '',
+    public image: string = '',
+    public createdAt: any = null
   ){}
 
 }

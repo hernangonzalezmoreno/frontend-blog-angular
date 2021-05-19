@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.post_upload{
+  height: 80px;
+  margin-bottom: 10px;
+}
+
 .avatar_upload{
   height: 80px;
   margin-bottom: 10px;
