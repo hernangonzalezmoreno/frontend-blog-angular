@@ -2,7 +2,19 @@
 
   <h1>{{pageTitle}}</h1>
 
+  <p>
+    Agrega una nueva entrada.
+  </p>
+  <hr/>
+
   <!-- Alertas -->
+  <div *ngIf="status=='success'" class="alert alert-success">
+    Se ha guardado correctamente la nueva entrada.
+  </div>
+
+  <div *ngIf="status=='error'" class="alert alert-danger">
+    Hubo un problema al intentar guardar la entrada. Revise todos los campos y vuelva a intentarlo.
+  </div>
 
   <!-- Formulario para crear un post -->
   <form #formularioPost="ngForm" (ngSubmit)="onSubmit(formularioPost)" class="col-md-5 ml-0 pl-0" >

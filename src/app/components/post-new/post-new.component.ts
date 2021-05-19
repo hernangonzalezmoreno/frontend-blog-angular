@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
 import { UserService } from '../../services/user.service';
+import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post';
 import { global } from '../../services/global';
 
@@ -9,7 +10,7 @@ import { global } from '../../services/global';
   selector: 'app-post-new',
   templateUrl: './post-new.component.html',
   styleUrls: ['./post-new.component.css'],
-  providers: [ CategoryService, UserService ]
+  providers: [ CategoryService, UserService, PostService ]
 })
 export class PostNewComponent implements OnInit {
 
@@ -19,6 +20,7 @@ export class PostNewComponent implements OnInit {
   public post: Post;
   public categories: any;
   public urlPostGetImage: string;
+  public status: string = '';
 
   // Opciones de Froala. Las distintas herramientas que se muestran segun el tamano de la pantalla
   public froala_options: Object = {
@@ -53,7 +55,8 @@ export class PostNewComponent implements OnInit {
     private _router: Router,
     private _activateRoute: ActivatedRoute,
     private _categoryService: CategoryService,
-    private _userService: UserService
+    private _userService: UserService,
+    private _postService: PostService
   )
   {
     this.identity = this._userService.getIdentity();
@@ -87,6 +90,17 @@ export class PostNewComponent implements OnInit {
 
   onSubmit( form: any ){
     console.log( this.post );
+    this._postService.create( this.token, this.post ).subscribe(
+      response => {
+        if( response.status == 'success' ){
+          this.status = response.status;
+
+        }else this.status = 'error';
+      },
+      error => {
+        this.status = 'error';
+      }
+    );
   }
 
 }
