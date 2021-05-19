@@ -28,4 +28,9 @@ export class CategoryService{
     return this._http.post( this._url+'category', params, {headers: headers} );
   }
 
+  getCategories(): Observable<any>{
+    let headers = this.getHeaders();
+    return this._http.get( this._url+'category', {headers: headers } );
+  }
+
 }
