@@ -19,3 +19,7 @@
 .avatar_nav_mask img{
   height: 40px;
 }
+
+.card-header a{
+  color: #555;
+}

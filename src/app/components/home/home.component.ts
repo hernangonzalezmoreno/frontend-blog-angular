@@ -10,7 +10,7 @@ import { Post } from '../../models/post';
 })
 export class HomeComponent implements OnInit {
 
-  public pageTitle: string = 'Home';
+  public pageTitle: string = 'Inicio';
   public posts: Array<Post> = [];
 
   constructor(
