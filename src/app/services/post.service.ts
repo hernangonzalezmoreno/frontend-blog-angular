@@ -28,4 +28,8 @@ export class PostService{
     return this._http.post( global.url+'post', params, {headers: headers} );
   }
 
+  getPosts(): Observable<any>{
+    return this._http.get( global.urlPost, {headers: this.getHeaders()} );
+  }
+
 }
