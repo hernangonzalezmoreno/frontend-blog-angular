@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { PostService } from '../../services/post.service';
-import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-post-detail',
@@ -12,7 +11,7 @@ import { Post } from '../../models/post';
 export class PostDetailComponent implements OnInit {
 
   public pageTitle: string = '';
-  public post: Post = new Post();
+  public post: any;
 
   constructor(
     private _router: Router,
