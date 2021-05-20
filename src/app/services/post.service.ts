@@ -32,4 +32,8 @@ export class PostService{
     return this._http.get( global.urlPost, {headers: this.getHeaders()} );
   }
 
+  getPost( id: number ): Observable<any>{
+    return this._http.get( global.urlPost+'/'+id, {headers: this.getHeaders()} );
+  }
+
 }
