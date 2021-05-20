@@ -21,6 +21,7 @@ export class PostNewComponent implements OnInit {
   public categories: any;
   public urlPostGetImage: string;
   public status: string = '';
+  //public resetVar: any;
 
   // Opciones de Froala. Las distintas herramientas que se muestran segun el tamano de la pantalla
   public froala_options: Object = {
@@ -88,13 +89,13 @@ export class PostNewComponent implements OnInit {
     this.post.image = data.body.image;
   }
 
-  onSubmit( form: any ){
+  onSubmit( formulario: any ){
     console.log( this.post );
     this._postService.create( this.token, this.post ).subscribe(
       response => {
         if( response.status == 'success' ){
           this.status = response.status;
-
+          formulario.reset();
         }else this.status = 'error';
       },
       error => {
