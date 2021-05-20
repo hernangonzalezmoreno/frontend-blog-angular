@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post';
 import { global } from '../../services/global';
@@ -7,17 +8,20 @@ import { global } from '../../services/global';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ PostService ]
+  providers: [ UserService, PostService ]
 })
 export class HomeComponent implements OnInit {
 
   public pageTitle: string = 'Inicio';
+  public identity: any;
   public posts: Array<Post> = [];
   public global: any;
 
   constructor(
+    private _userService: UserService,
     private _postService: PostService
   ){
+    this.identity = this._userService.getIdentity();
     this.global = global;
   }
 
