@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post';
+import { global } from '../../services/global';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,12 @@ export class HomeComponent implements OnInit {
 
   public pageTitle: string = 'Inicio';
   public posts: Array<Post> = [];
+  public global: any;
 
   constructor(
     private _postService: PostService
   ){
-
+    this.global = global;
   }
 
   ngOnInit(): void {

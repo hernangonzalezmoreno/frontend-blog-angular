@@ -23,3 +23,8 @@
 .card-header a{
   color: #555;
 }
+
+.card-image{
+  height: 155px;
+  overflow: hidden;
+}
