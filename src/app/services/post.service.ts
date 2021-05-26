@@ -46,4 +46,9 @@ export class PostService{
     return this._http.put( global.urlPost +'/'+ post.id, params, {headers: headers}  );
   }
 
+  delete( token: string, id: number ): Observable<any>{
+    let headers = this.getHeaders( token );
+    return this._http.delete( global.urlPost +'/'+ id, {headers: headers} );
+  }
+
 }

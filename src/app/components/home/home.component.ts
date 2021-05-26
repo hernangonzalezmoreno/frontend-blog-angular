@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   public pageTitle: string = 'Inicio';
   public identity: any;
+  public token: string;
   public posts: Array<Post> = [];
   public global: any;
 
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
     private _postService: PostService
   ){
     this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken();
     this.global = global;
   }
 
@@ -39,6 +41,17 @@ export class HomeComponent implements OnInit {
       },
       error => {
         console.log( 'Home Error: getPosts() (1) -> ' + <any>error );
+      }
+    );
+  }
+
+  deletePost( id: number ){
+    this._postService.delete( this.token, id ).subscribe(
+      response => {
+        this.getPosts();
+      },
+      error => {
+        console.log( <any>error );
       }
     );
   }
