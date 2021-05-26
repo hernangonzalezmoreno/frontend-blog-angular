@@ -15,17 +15,10 @@ export class PostService{
     this._url = global.url;
   }
 
-  getHeaders(): HttpHeaders{
-    return new HttpHeaders().set( 'Content-Type', 'application/x-www-form-urlencoded' );
-  }
-
-  create( token: string, post: Post ): Observable<any>{
-    let json = JSON.stringify( post );
-    let params = 'json='+json;
-
-    let headers = this.getHeaders().set( 'Authorization', token );
-
-    return this._http.post( global.url+'post', params, {headers: headers} );
+  getHeaders( token: string = '' ): HttpHeaders{
+    let headers = new HttpHeaders().set( 'Content-Type', 'application/x-www-form-urlencoded' );
+    if( token !== '' ) headers.set( 'Authorization', token );
+    return headers;
   }
 
   getPosts(): Observable<any>{
@@ -34,6 +27,24 @@ export class PostService{
 
   getPost( id: number ): Observable<any>{
     return this._http.get( global.urlPost+'/'+id, {headers: this.getHeaders()} );
+  }
+
+  create( token: string, post: Post ): Observable<any>{
+    let json = JSON.stringify( post );
+    let params = 'json='+json;
+
+    let headers = this.getHeaders( token );
+
+    return this._http.post( global.url+'post', params, {headers: headers} );
+  }
+
+  update( token: string, post: Post ): Observable<any>{
+    let json = JSON.stringify( post );
+    let params = 'json='+json;
+
+    let headers = this.getHeaders( token );
+
+    return this._http.put( global.urlPost +'/'+ post.id, params, {headers: headers}  );
   }
 
 }
