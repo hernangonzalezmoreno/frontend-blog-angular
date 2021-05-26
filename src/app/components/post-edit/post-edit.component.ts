@@ -116,17 +116,22 @@ export class PostEditComponent implements OnInit {
 
   onSubmit( formulario: any ){
     console.log( this.post );
-    /*this._postService.create( this.token, this.post ).subscribe(
+    this._postService.update( this.token, this.post ).subscribe(
       response => {
         if( response.status == 'success' ){
           this.status = response.status;
-          formulario.reset();
-        }else this.status = 'error';
+          // Redirigimos al post-detail de la entrada editada
+          this._router.navigate( [ '/entrada', this.post.id ] );
+        }else{
+          this.status = 'error';
+          if( response.message ) console.log( response.message );
+        }
       },
       error => {
         this.status = 'error';
+        console.log( <any>error );
       }
-    );*/
+    );
   }
 
 }

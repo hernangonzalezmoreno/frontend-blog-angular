@@ -16,9 +16,8 @@ export class PostService{
   }
 
   getHeaders( token: string = '' ): HttpHeaders{
-    let headers = new HttpHeaders().set( 'Content-Type', 'application/x-www-form-urlencoded' );
-    if( token !== '' ) headers.set( 'Authorization', token );
-    return headers;
+    return new HttpHeaders().set( 'Content-Type', 'application/x-www-form-urlencoded' )
+                            .set( 'Authorization', token );
   }
 
   getPosts(): Observable<any>{
