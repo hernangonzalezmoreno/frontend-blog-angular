@@ -28,6 +28,10 @@ export class PostService{
     return this._http.get( global.urlPost+'/'+id, {headers: this.getHeaders()} );
   }
 
+  getPostsByCategory( category_id: number ): Observable<any>{
+    return this._http.get( global.urlPost+'/category/'+category_id, {headers: this.getHeaders()} );
+  }
+
   create( token: string, post: Post ): Observable<any>{
     let json = JSON.stringify( post );
     let params = 'json='+json;
