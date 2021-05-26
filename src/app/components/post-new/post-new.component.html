@@ -2,9 +2,14 @@
 
   <h1>{{pageTitle}}</h1>
 
-  <p>
-    Agrega una nueva entrada.
+  <p *ngIf="!is_edit">
+    Agregá una nueva entrada.
   </p>
+
+  <p *ngIf="is_edit && post">
+    Editá la entrada: <strong>{{post.title}}</strong>.
+  </p>
+
   <hr/>
 
   <!-- Alertas -->

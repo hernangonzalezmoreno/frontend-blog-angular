@@ -22,6 +22,7 @@ export class PostNewComponent implements OnInit {
   public urlPostGetImage: string;
   public status: string = '';
   //public resetVar: any;
+  public is_edit: boolean = false;
 
   // Opciones de Froala. Las distintas herramientas que se muestran segun el tamano de la pantalla
   public froala_options: Object = {
