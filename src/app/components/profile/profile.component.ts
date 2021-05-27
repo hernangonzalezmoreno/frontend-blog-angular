@@ -36,6 +36,11 @@ export class ProfileComponent implements OnInit {
     this.getParams();
   }
 
+  error( msj: string = '' ){
+    if( msj !== '' ) console.log( msj );
+    this._router.navigate( ['/error'] );
+  }
+
   getParams(){
     this._activatedRoute.params.subscribe(
       params => {
@@ -51,10 +56,10 @@ export class ProfileComponent implements OnInit {
       response => {
         if( response.status == 'success' ){
           this.profile.setValues( response.user );
-        }else console.log( "Error getProfile() (1)" );
+        }else this.error( "Error getProfile() (1)" );
       },
       error => {
-        console.log( "Error getProfile() (2): " + <any>error );
+        this.error( "Error getProfile() (2): " + <any>error );
       }
     );
   }
@@ -64,10 +69,10 @@ export class ProfileComponent implements OnInit {
       response => {
         if( response.status == 'success' ){
           this.posts = response.posts;
-        }else console.log( 'Error getPostsByUser() (1)' );
+        }else this.error( 'Error getPostsByUser() (1)' );
       },
       error => {
-        console.log( 'Error getPostsByUser() (2): ' + <any>error );
+        this.error( 'Error getPostsByUser() (2): ' + <any>error );
       }
     );
   }

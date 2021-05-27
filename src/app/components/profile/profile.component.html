@@ -1,6 +1,22 @@
 <div class="container-fluid mt-3">
 
-  <h1>{{profile.name + ' ' + profile.surname}}</h1>
+  <div class="profile-card mb-3">
+
+    <!-- floatado a la izquierda con 'float-left' -->
+    <div *ngIf="profile.image" class="avatar_profile_mask float-left mr-3" >
+      <img src="{{global.urlAvatar + profile.image}}"/>
+    </div>
+
+    <!-- floatado a la izquierda con 'float-left' -->
+    <div class="float-left pt-3" >
+      <h1>{{profile.name + ' ' + profile.surname}}</h1>
+    </div>
+
+    <!-- limpiamos los flotados -->
+    <div class="clearfix"></div>
+
+  </div>
+  <p [innerHtml]="profile.description"></p>
   <hr/>
 
   <!-- Componente post-list -->

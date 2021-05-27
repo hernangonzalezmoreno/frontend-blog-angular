@@ -20,6 +20,17 @@
   height: 40px;
 }
 
+.avatar_profile_mask{
+  width: 80px;
+  height: 80px;
+  border-radius: 900px;
+  overflow: hidden;
+}
+
+.avatar_profile_mask img{
+  height: 80px;
+}
+
 .card-header a{
   color: #555;
 }
