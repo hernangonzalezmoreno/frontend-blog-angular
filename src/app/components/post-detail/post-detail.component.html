@@ -7,7 +7,7 @@
   <h1 class="mt-3">{{post.title}}</h1>
 
   <p>
-    {{post.category.name}} - Autor: {{post.user.name + ' ' + post.user.surname}}
+    {{post.category.name}} - <a [routerLink]="[ '/perfil', post.user.id ]" >Autor: {{post.user.name + ' ' + post.user.surname}}</a>
   </p>
 
   <hr/>

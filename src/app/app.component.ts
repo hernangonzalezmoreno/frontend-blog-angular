@@ -13,7 +13,7 @@ import { global } from './services/global';
 export class AppComponent implements OnInit, DoCheck{
 
   public title = 'frontend-blog-angular';
-  public identity: User = null as any;
+  public identity: any;
   public urlAvatar: string;
   public token: string = '';
   public categories: any;

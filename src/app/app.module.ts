@@ -23,6 +23,7 @@ import { UserService } from './services/user.service';
 
 // Importaciones de guard
 import { IdentityGuard } from './services/identity.guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
 
@@ -37,7 +38,8 @@ import { IdentityGuard } from './services/identity.guard';
     PostNewComponent,
     PostDetailComponent,
     PostEditComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    ProfileComponent
   ],
 
   // Modulos
