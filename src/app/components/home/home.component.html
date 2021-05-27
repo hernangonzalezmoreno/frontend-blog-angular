@@ -1,11 +1,15 @@
-<p *ngIf="posts.length==0">Cargando...</p>
+<p *ngIf="!posts">Cargando...</p>
 
-<div *ngIf="posts.length>0" class="container-fluid mt-3">
+<div *ngIf="posts" class="container-fluid mt-3">
 
   <h1>{{pageTitle}}</h1>
   <hr/>
 
-  <div class="card-columns">
+  <div class="alert alert-warning" *ngIf="posts.length == 0">
+    No hay ninguna entrada de esta categoría.
+  </div>
+
+  <div class="card-columns" *ngIf="posts.length > 0">
 
     <div class="card w-100" *ngFor="let post of posts" >
 

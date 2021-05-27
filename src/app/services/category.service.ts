@@ -33,4 +33,9 @@ export class CategoryService{
     return this._http.get( this._url+'category', {headers: headers } );
   }
 
+  getCategory( category_id: number ): Observable<any>{
+    let headers = this.getHeaders();
+    return this._http.get( this._url+'category/'+category_id, {headers: headers } );
+  }
+
 }
