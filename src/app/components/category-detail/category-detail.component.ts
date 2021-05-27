@@ -9,8 +9,8 @@ import { global } from '../../services/global';
 
 @Component({
   selector: 'app-category-detail',
-  templateUrl: '../home/home.component.html',
-  styleUrls: ['../home/home.component.css'],
+  templateUrl: './category-detail.component.html',
+  styleUrls: ['./category-detail.component.css'],
   providers: [ UserService, PostService, CategoryService ]
 })
 export class CategoryDetailComponent implements OnInit {

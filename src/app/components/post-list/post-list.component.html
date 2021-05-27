@@ -1,0 +1,66 @@
+<div class="alert alert-warning" *ngIf="posts.length == 0">
+  No hay ninguna entrada.
+</div>
+
+<div class="card-columns" *ngIf="posts.length > 0">
+
+  <div class="card w-100" *ngFor="let post of posts" >
+
+    <div class="card-header">
+      <h3>
+        <a [routerLink]="[ '/entrada/', post.id ]">{{post.title}}</a>
+      </h3>
+    </div>
+
+    <div class="card-body">
+
+      <!-- imagen -->
+      <div class="card-image w-100" > <!-- Puedo agregarle a este div *ngIf="post.image" asi directamente no muestro nada si no tiene imagen -->
+        <img *ngIf="post.image" src="{{ global.urlPostGetImage + post.image }}" class="w-100">
+        <!-- <img *ngIf="!post.image" src="https://via.placeholder.com/400x250" class="w-100"> -->
+        <img *ngIf="!post.image" src="assets/images/placeholder-default.jpg" class="w-100">
+      </div>
+
+      <!-- botones de accion -->
+      <div class="mt-3">
+        <a [routerLink]="[ '/entrada/', post.id ]" class="btn btn-success mr-2" >Leer</a>
+        <span *ngIf="identity && identity.sub == post.user_id" >
+          <a [routerLink]="[ '/editar-entrada', post.id ]" class="btn btn-warning mr-2" >Editar</a>
+          <!--<a (click)="deletePost( post.id )" class="btn btn-danger" >Borrar</a>-->
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#modal'+post.id" >
+            Borrar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="{{ 'modal' + post.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Borrar entrada</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Está seguro que desea borrar definitivamente la entrada <strong>{{post.title}}</strong>?
+                </div>
+                <div class="modal-footer">
+                  <button (click)="parent.deletePost( post.id )" type="button" class="btn btn-danger" data-dismiss="modal">Sí, borrar</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
