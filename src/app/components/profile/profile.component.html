@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<div class="container-fluid mt-3">
+
+  <h1>{{profile.name + ' ' + profile.surname}}</h1>
+  <hr/>
+
+  <!-- Componente post-list -->
+  <app-post-list [parent]="this"
+                 [identity]="identity"
+                 [posts]="posts"
+                 [global]="global" ></app-post-list>
+
+</div>

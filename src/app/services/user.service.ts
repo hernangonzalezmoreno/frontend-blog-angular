@@ -29,6 +29,10 @@ export class UserService{
     return identity;
   }
 
+  detail( id: number ): Observable<any>{
+    return this._http.get( this.url + 'user/detail/' + id, {headers: this.getHeaders()} );
+  }
+
   register( user: User ): Observable<any>{
     let json = JSON.stringify( user );
     let params = 'json=' + json;
