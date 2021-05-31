@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
 
   public pageTitle : string;
   public user : User;
+  public repeatPassword: string = '';
   public status : string = '';
 
   constructor(
@@ -22,6 +23,10 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  checkPasswords(): boolean{
+    return this.user.password === this.repeatPassword;
   }
 
   onSubmit( formulario: any ){

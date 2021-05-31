@@ -63,7 +63,17 @@
       </small>
     </div>
 
-    <input type="submit" value="Registrarme" class="btn btn-success" [disabled]="formularioDeRegistro.invalid" >
+     <div class="form-group">
+      <label for="repeatPassword">Repita la contraseña</label>
+      <input type="password" name="repeatPassword" class="form-control"
+      ng-model="repeatPassword" [(ngModel)]="repeatPassword" required pattern=".{8,255}" >
+      <!-- Mensaje de alerta: si los password no coinciden -->
+      <small *ngIf="!checkPasswords()" class="invalid-feedback d-block">
+        La contraseñas no coinciden.
+      </small>
+    </div>
+
+    <input type="submit" value="Registrarme" class="btn btn-success" [disabled]="formularioDeRegistro.invalid || !checkPasswords()" >
 
   </form>
 </div>
