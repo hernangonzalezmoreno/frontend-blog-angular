@@ -1,6 +1,12 @@
-# FrontendBlogAngular
+# Frontend-Blog-Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+
+## Acerca del proyecto
+
+Un blog hecho con Angular. Listo para consumir una API-RESTful. Este repositorio se puede utilizar en conjunto con el repositorio [backend-blog-laravel](https://github.com/hernangonzalezmoreno/backend-blog-laravel).
+
+También pude ver este proyecto funcionando en el siguiente sitio: [blog.moduchip.com.ar](http://blog.moduchip.com.ar).
 
 ## Development server
 
