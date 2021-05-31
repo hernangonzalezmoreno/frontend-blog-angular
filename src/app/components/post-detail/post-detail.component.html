@@ -7,11 +7,27 @@
   <h1 class="mt-3">{{post.title}}</h1>
 
   <p>
-    {{post.category.name}} - <a [routerLink]="[ '/perfil', post.user.id ]" >Autor: {{post.user.name + ' ' + post.user.surname}}</a>
+    {{post.category.name}} - <a [routerLink]="[ '/perfil', post.user.id ]" >{{post.user.name + ' ' + post.user.surname}}</a>
   </p>
 
   <hr/>
 
-  <p [innerHtml]="post.content"></p>
+  <div class="row">
+
+    <div class="col-md-7">
+      <p [innerHtml]="post.content"></p>
+
+    </div>
+
+    <div class="colmd-5">
+      <div class="text-center" *ngIf="post.image" >
+        <img width="450" src="{{global.urlPostGetImage + post.image}}" alt="Imagen de la entrada">
+      </div>
+
+    </div>
+
+  </div>
+
+
 
 </div>
