@@ -27,7 +27,7 @@
       <!-- Hacemos un puente bidireccional con el modelo -->
       <!-- Ademas aplicamos comprobaciones HTML5 para que sea requerido y solo caracteres alfabeticos -->
       <input type="text" name="name" class="form-control"
-      #name="ngModel" [(ngModel)]="category.name" required pattern="[a-zA-Z ]{2,50}"
+      #name="ngModel" [(ngModel)]="category.name" required pattern=".{2,50}"
       title="El nombre no es válido." >
       <!-- Mensaje de alerta: si el nombre no es valido -->
       <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
