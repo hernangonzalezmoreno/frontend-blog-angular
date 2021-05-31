@@ -6,8 +6,8 @@
 
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" name="email" class="form-control"
-      #email="ngModel" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.][a-z]+" >
+      <input type="email" name="email" class="form-control"
+      #email="ngModel" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.][a-z.]+" >
       <!-- Mensaje de alerta: si el email no es valido -->
       <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
         El email no es válido.
