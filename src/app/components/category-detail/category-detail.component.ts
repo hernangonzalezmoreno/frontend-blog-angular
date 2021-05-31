@@ -21,6 +21,7 @@ export class CategoryDetailComponent implements OnInit {
   public category: Category = new Category();
   public posts: Array<Post> = [];
   public global;
+  public chargingPosts: boolean = true;
 
   constructor(
     private _router: Router,
@@ -67,6 +68,7 @@ export class CategoryDetailComponent implements OnInit {
       response => {
         if( response.status == 'success' ){
           this.posts = response.posts;
+          this.chargingPosts = false;
           console.log( this.posts );
         }else console.log( 'Error al pedir los posts por categoria (1)' );
       },

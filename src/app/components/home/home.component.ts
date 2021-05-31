@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   public token: string;
   public posts: Array<Post> = [];
   public global: any;
+  public chargingPosts: boolean = true;
 
   constructor(
     private _userService: UserService,
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
       response => {
         if( response.status == 'success' ){
           this.posts = response.posts;
+          this.chargingPosts = false;
           console.log( this.posts );
         }
       },

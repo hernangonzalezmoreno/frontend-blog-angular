@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   public profile: User = new User();
   public posts: Array<Post> = [];
   public global: any;
+  public chargingPosts: boolean = true;
 
   constructor(
     private _router: Router,
@@ -69,6 +70,7 @@ export class ProfileComponent implements OnInit {
       response => {
         if( response.status == 'success' ){
           this.posts = response.posts;
+          this.chargingPosts = false;
         }else this.error( 'Error getPostsByUser() (1)' );
       },
       error => {

@@ -1,8 +1,12 @@
-<div class="alert alert-warning" *ngIf="posts.length == 0">
+<div *ngIf="chargingPosts">
+  Cargando...
+</div>
+
+<div class="alert alert-warning" *ngIf="!chargingPosts && posts.length == 0">
   No hay ninguna entrada.
 </div>
 
-<div class="card-columns" *ngIf="posts.length > 0">
+<div class="card-columns" *ngIf="!chargingPosts && posts.length > 0">
 
   <div class="card w-100" *ngFor="let post of posts" >
 

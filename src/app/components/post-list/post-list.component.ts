@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit {
   @Input() identity: any;
   @Input() posts: any;
   @Input() global: any;
+  @Input() chargingPosts: any;
 
   constructor(
       private _postService: PostService
